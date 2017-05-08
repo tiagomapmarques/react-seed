@@ -1,32 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import { AppContainer as HotLoaderContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import App from './containers/App';
-import configureStore from './stores';
 
-const store = configureStore();
+import { createStore } from './states';
+import { HomeContainer } from './containers/home/index';
 
-ReactDOM.render(
-  <AppContainer>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </AppContainer>,
-  document.getElementById('app')
-);
+const store = createStore();
+
+const createRoot = (AppElement) => {
+  ReactDOM.render(
+    <HotLoaderContainer>
+      <Provider store={store}>
+        { AppElement }
+      </Provider>
+    </HotLoaderContainer>,
+    document.getElementById('app'),
+  );
+};
+
+createRoot(<HomeContainer />);
 
 if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    const NextApp = require('./containers/App').default; // eslint-disable-line global-require
-
-    ReactDOM.render(
-      <AppContainer>
-        <Provider store={store}>
-          <NextApp />
-        </Provider>
-      </AppContainer>,
-      document.getElementById('app')
-    );
+  module.hot.accept('./containers/home/index', () => {
+    const NextApp = require('./containers/home/index').HomeContainer; // eslint-disable-line global-require
+    createRoot(<NextApp />);
   });
 }

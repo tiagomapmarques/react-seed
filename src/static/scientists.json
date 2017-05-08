@@ -1,0 +1,24 @@
+{
+  "scientists": [
+    {
+      "id": "1",
+      "name": "Edsger Dijkstra",
+      "title": "doctor"
+    },
+    {
+      "id": "2",
+      "name": "Donald Knuth",
+      "title": "mister"
+    },
+    {
+      "id": "3",
+      "name": "Alan Turing",
+      "title": "doctor"
+    },
+    {
+      "id": "4",
+      "name": "Grace Hopper",
+      "title": "miss"
+    }
+  ]
+}

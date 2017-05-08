@@ -1,0 +1,1 @@
+export { ScientistsService } from './scientists';

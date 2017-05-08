@@ -68,6 +68,7 @@
   },
   "dependencies": {
     "cross-env": "^3.1.0",
+    "prop-types": "^15.5.8",
     "react": "^15.0.1",
     "react-css-modules": "^3.7.10",
     "react-dom": "^15.0.1",
