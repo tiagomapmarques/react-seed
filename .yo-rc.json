@@ -1,9 +1,0 @@
-{
-  "generator-react-webpack": {
-    "appName": "react-seed",
-    "style": "sass",
-    "cssmodules": true,
-    "postcss": false,
-    "generatedWithVersion": 4
-  }
-}

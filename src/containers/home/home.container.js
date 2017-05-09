@@ -1,28 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { connect, stateTypes, statePropTypes } from '../../states';
-import Main from '../../components/App';
+import { Container } from 'containers/base.container';
+import { connect, stateTypes, statePropTypes } from 'states';
+import { ScientistList, ScientistAdd } from 'modules/scientist';
 
-class Home extends Component {
+class Home extends Container {
+
   constructor(props) {
     super(props);
-    this.props.scientistsActions.fetchAll();
-    this.state = { addedOne: false };
+    this.handleRemoval = this.handleRemoval.bind(this);
   }
 
-  componentDidUpdate() {
-    if (this.props.scientists && !this.state.addedOne) {
-      this.setState({ addedOne: true }, () => this.props.scientistsActions.add('5', 'Tiago Marques', 'mister'));
-    }
+  componentDidMount() {
+    this.props.scientistsActions.fetchAll();
+  }
+
+  handleRemoval(id) {
+    this.props.scientistsActions.remove(id);
   }
 
   render() {
-    console.log(this.props);
-    return <Main />;
+    const { scientists, scientistsActions } = this.props;
+    return (
+      <div>
+        <ScientistAdd scientistsActions={scientistsActions} />
+        <ScientistList scientists={scientists} onClick={this.handleRemoval}/>
+      </div>
+    );
   }
 }
 
 Home.propTypes = {
+  ...Container.propTypes,
   ...statePropTypes.scientists,
 };
 

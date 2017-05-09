@@ -70,11 +70,13 @@ class WebpackBaseConfig {
    * @return {Object}
    */
   get defaultSettings() {
-    const cssModulesQuery = {
+    const styleModulesQuery = {
       modules: true,
-      importLoaders: 1,
-      localIdentName: '[name]-[local]-[hash:base64:5]'
     };
+    const cssModulesQuery = Object.assign({
+      importLoaders: 1,
+      localIdentName: '[name]-[local]-[hash:base64:5]',
+    }, styleModulesQuery);
 
     return {
       context: this.srcPathAbsolute,
@@ -85,7 +87,7 @@ class WebpackBaseConfig {
         historyApiFallback: true,
         hot: true,
         inline: true,
-        port: 8000
+        port: 8000,
       },
       entry: './index.js',
       module: {
@@ -96,126 +98,64 @@ class WebpackBaseConfig {
             include: this.srcPathAbsolute,
             loader: 'babel-loader',
             query: {
-              presets: ['es2015']
-            }
+              presets: [ 'es2015', 'stage-2', 'react' ],
+            },
           },
           {
-            test: /^.((?!cssmodule).)*\.css$/,
+            test: /\.css$/,
             loaders: [
               { loader: 'style-loader' },
-              { loader: 'css-loader' }
-            ]
+              { loader: 'css-loader', options: cssModulesQuery },
+              { loader: 'postcss-loader' },
+            ],
           },
           {
-            test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2)$/,
-            loader: 'file-loader'
-          },
-          {
-            test: /^.((?!cssmodule).)*\.(sass|scss)$/,
+            test: /\.scss$/,
             loaders: [
               { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'sass-loader' }
-            ]
-          },
-          {
-            test: /^.((?!cssmodule).)*\.less$/,
-            loaders: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'less-loader' }
-            ]
-          },
-          {
-            test: /^.((?!cssmodule).)*\.styl$/,
-            loaders: [
-              { loader: 'style-loader' },
-              { loader: 'css-loader' },
-              { loader: 'stylus-loader' }
-            ]
+              { loader: 'css-loader', options: styleModulesQuery },
+              { loader: 'sass-loader' },
+            ],
           },
           {
             test: /\.json$/,
-            loader: 'json-loader'
+            loader: 'json-loader',
           },
           {
-            test: /\.(js|jsx)$/,
-            include: [].concat(
-              this.includedPackages,
-              [this.srcPathAbsolute]
-            ),
-            loaders: [
-              // Note: Moved this to .babelrc
-              { loader: 'babel-loader' }
-            ]
+            test: /\.(png|jpg|gif|mp4|ogg|svg|woff|woff2)$/,
+            loader: 'file-loader',
           },
           {
-            test: /\.cssmodule\.(sass|scss)$/,
+            test: /\.js$/,
             loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              },
-              { loader: 'sass-loader' }
+              // NOTE: Moved this to .babelrc
+              { loader: 'babel-loader' },
             ]
           },
-          {
-            test: /\.cssmodule\.css$/,
-            loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              }
-            ]
-          },
-          {
-            test: /\.cssmodule\.less$/,
-            loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              },
-              { loader: 'less-loader' }
-            ]
-          },
-          {
-            test: /\.cssmodule\.styl$/,
-            loaders: [
-              { loader: 'style-loader' },
-              {
-                loader: 'css-loader',
-                query: cssModulesQuery
-              },
-              { loader: 'stylus-loader' }
-            ]
-          }
-        ]
+        ],
       },
       output: {
         path: path.resolve('./dist/assets'),
         filename: 'app.js',
-        publicPath: './assets/'
+        publicPath: './assets/',
       },
       plugins: [],
       resolve: {
         alias: {
-          actions: `${this.srcPathAbsolute}/actions/`,
-          components: `${this.srcPathAbsolute}/components/`,
           config: `${this.srcPathAbsolute}/config/${this.env}.js`,
-          images: `${this.srcPathAbsolute}/images/`,
-          sources: `${this.srcPathAbsolute}/sources/`,
-          stores: `${this.srcPathAbsolute}/stores/`,
-          styles: `${this.srcPathAbsolute}/styles/`
+          containers: `${this.srcPathAbsolute}/containers/`,
+          modules: `${this.srcPathAbsolute}/modules/`,
+          services: `${this.srcPathAbsolute}/services/`,
+          states: `${this.srcPathAbsolute}/states/`,
+          themes: `${this.srcPathAbsolute}/themes/`,
+          types: `${this.srcPathAbsolute}/types/`,
         },
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.css', '.scss'],
         modules: [
           this.srcPathAbsolute,
-          'node_modules'
-        ]
-      }
+          'node_modules',
+        ],
+      },
     };
   }
 }

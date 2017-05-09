@@ -27,7 +27,7 @@ build/Release
 node_modules
 
 # Bower
-bower_components/
+bower_modules/
 
 # Dist folder
 dist/

@@ -3,27 +3,28 @@ import ReactDOM from 'react-dom';
 import { AppContainer as HotLoaderContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 
-import { createStore } from './states';
-import { HomeContainer } from './containers/home/index';
+import { createStore } from 'states';
+import { Routing } from 'containers/routing';
 
+const mainTagId = 'app';
 const store = createStore();
 
-const createRoot = (AppElement) => {
+const createRoot = (App) => {
   ReactDOM.render(
     <HotLoaderContainer>
       <Provider store={store}>
-        { AppElement }
+        { App }
       </Provider>
     </HotLoaderContainer>,
-    document.getElementById('app'),
+    document.getElementById(mainTagId),
   );
 };
 
-createRoot(<HomeContainer />);
+createRoot(<Routing />);
 
 if (module.hot) {
-  module.hot.accept('./containers/home/index', () => {
-    const NextApp = require('./containers/home/index').HomeContainer; // eslint-disable-line global-require
+  module.hot.accept('./containers/routing', () => {
+    const NextApp = require('./containers/routing').Routing; // eslint-disable-line global-require
     createRoot(<NextApp />);
   });
 }

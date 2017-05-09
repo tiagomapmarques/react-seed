@@ -4,7 +4,8 @@ import { typeName } from './types';
 export const actionCreators = dispatch => ({
   fetchAll: () => ({ type: `${typeName}/fetchAll`, dispatch }),
   setAll: scientists => ({ type: `${typeName}/setAll`, scientists }),
-  add: (id, name, title) => ({ type: `${typeName}/add`, id, name, title }),
+  add: (name, title) => ({ type: `${typeName}/add`, name, title }),
+  remove: id => ({ type: `${typeName}/remove`, id }),
 });
 
 export const actionProducers = {
@@ -16,6 +17,11 @@ export const actionProducers = {
   setAll: (prevState, action) => action.scientists,
   add: (prevState, action) => [
     ...prevState,
-    { id: action.id, name: action.name, title: action.title },
+    {
+      id: 1 + prevState.reduce((max, scientist) => Math.max(max, scientist.id), 0),
+      name: action.name,
+      title: action.title,
+    },
   ],
+  remove: (prevState, action) => prevState.filter(scientist => scientist.id !== action.id),
 };
