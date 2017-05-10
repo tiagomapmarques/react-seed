@@ -8,7 +8,7 @@ const devEnvironment = Object.assign({}, baseEnvironment, {
   devtool: 'cheap-module-source-map',
   devServer: Object.assign({}, baseEnvironment.devServer, {
     hot: true,
-  });
+  }),
   entry: [
     'webpack-dev-server/client?http://0.0.0.0:8000/',
     'webpack/hot/only-dev-server',

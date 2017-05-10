@@ -1,20 +1,24 @@
 import { ScientistsService } from '../../services/scientists';
 import { typeName } from './types';
 
-export const actionCreators = dispatch => ({
-  fetchAll: () => ({ type: `${typeName}/fetchAll`, dispatch }),
-  setAll: scientists => ({ type: `${typeName}/setAll`, scientists }),
-  add: (name, title) => ({ type: `${typeName}/add`, name, title }),
-  remove: id => ({ type: `${typeName}/remove`, id }),
-});
+export const actionCreators = {
 
-export const actionProducers = {
-  fetchAll: (prevState, action) => {
-    ScientistsService.fetchAll()
-      .then(scientists => action.dispatch(actionCreators().setAll(scientists)));
-    return prevState;
-  },
+  init: () => (dispatch, getState) => !getState().scientists && actionCreators.fetchAll()(dispatch),
+
+  fetchAll: () => (dispatch) => ScientistsService.fetchAll()
+    .then(scientists => actionCreators.setAll(scientists)(dispatch)),
+
+  setAll: (scientists) => (dispatch) => dispatch({ type: `${typeName}/setAll`, scientists }),
+
+  add: (name, title) => (dispatch) => dispatch({ type: `${typeName}/add`, name, title }),
+
+  remove: (id) => (dispatch) => dispatch({ type: `${typeName}/remove`, id }),
+};
+
+export const stateChangers = {
+
   setAll: (prevState, action) => action.scientists,
+
   add: (prevState, action) => [
     ...prevState,
     {
@@ -23,5 +27,6 @@ export const actionProducers = {
       title: action.title,
     },
   ],
+
   remove: (prevState, action) => prevState.filter(scientist => scientist.id !== action.id),
 };

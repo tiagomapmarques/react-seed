@@ -11,10 +11,6 @@ class Home extends Container {
     this.handleRemoval = this.handleRemoval.bind(this);
   }
 
-  componentDidMount() {
-    this.props.scientistsActions.fetchAll();
-  }
-
   handleRemoval(id) {
     this.props.scientistsActions.remove(id);
   }
@@ -24,7 +20,7 @@ class Home extends Container {
     return (
       <div>
         <ScientistAdd scientistsActions={scientistsActions} />
-        <ScientistList scientists={scientists} onClick={this.handleRemoval}/>
+        <ScientistList scientists={scientists || []} onClick={this.handleRemoval}/>
       </div>
     );
   }

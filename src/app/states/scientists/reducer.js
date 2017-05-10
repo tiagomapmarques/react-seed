@@ -1,10 +1,10 @@
 import { typeName } from './types';
-import { actionProducers } from './actions';
+import { stateChangers } from './actions';
 
-export const reducer = (state, action) => {
+export const reducer = (prevState, action) => {
   const actionType = action.type.split('/');
   if (actionType[0] === typeName) {
-    return actionProducers[actionType[1]](state, action);
+    return stateChangers[actionType[1]](prevState, action);
   }
-  return state || [];
+  return prevState || null;
 };

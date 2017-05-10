@@ -1,13 +1,15 @@
-import { createStore as reduxCreateStore } from 'redux';
+import { createStore as reduxCreateStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import { reducers } from './reducers';
 
+const middleware = [ thunk ];
+if (window.devToolsExtension) {
+  middleware.push(window.devToolsExtension());
+}
+
 export const createStore = (initialState) => {
-  const store = reduxCreateStore(
-    reducers,
-    initialState,
-    window.devToolsExtension && window.devToolsExtension(),
-  );
+  const store = reduxCreateStore(reducers, initialState, applyMiddleware(...middleware));
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
