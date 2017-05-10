@@ -1,15 +1,17 @@
 'use strict';
 
-/* eslint no-console: "off" */
-const webpackConfigs = require('./conf/webpack');
-const defaultConfig = 'dev';
+const getConfig = require('./src/environments');
+const nodeEnvMap = {
+  dev: 'dev',
+  dist: 'production',
+  test: 'test',
+}
 
 module.exports = (configName) => {
-  const LoadedConfig = (configName && webpackConfigs[configName]) || webpackConfigs[defaultConfig];
-  const loadedInstance = new LoadedConfig();
+  const env = getConfig(configName);
 
   // Set the global environment
-  process.env.NODE_ENV = loadedInstance.env;
+  process.env.NODE_ENV = nodeEnvMap[env.environment];
 
-  return loadedInstance.config;
+  return env.config;
 };

@@ -5,36 +5,36 @@ const webpackCfg = require('./webpack.config')('test');
 module.exports = function karmaConfig(config) {
 
   config.set({
-    browsers: ['PhantomJS'],
+    browsers: [ 'PhantomJS' ],
     files: [
-      'test/loadtests.js'
+      'test/loadtests.js',
     ],
     port: 8080,
     captureTimeout: 60000,
     frameworks: [
       'mocha',
       'chai',
-      'sinon'
+      'sinon',
     ],
     client: {
-      mocha: {}
+      mocha: {},
     },
     singleRun: true,
-    reporters: ['mocha', 'coverage', 'junit'],
+    reporters: [ 'mocha', 'coverage', 'junit' ],
     mochaReporter: {
-      output: 'autowatch'
+      output: 'autowatch',
     },
     preprocessors: {
-      'test/loadtests.js': ['webpack', 'sourcemap']
+      'test/loadtests.js': [ 'webpack', 'sourcemap' ],
     },
     webpack: webpackCfg,
     webpackServer: {
-      noInfo: true
+      noInfo: true,
     },
     junitReporter: {
       outputDir: 'coverage',
       outputFile: 'junit-result.xml',
-      useBrowserName: false
+      useBrowserName: false,
     },
     coverageReporter: {
       dir: 'coverage/',
@@ -42,23 +42,23 @@ module.exports = function karmaConfig(config) {
         statements: [70, 80],
         functions: [70, 80],
         branches: [70, 80],
-        lines: [70, 80]
+        lines: [70, 80],
       },
       reporters: [
         { type: 'text' },
         {
           type: 'html',
-          subdir: 'html'
+          subdir: 'html',
         },
         {
           type: 'cobertura',
-          subdir: 'cobertura'
+          subdir: 'cobertura',
         },
         {
           type: 'lcovonly',
-          subdir: 'lcov'
-        }
-      ]
-    }
+          subdir: 'lcov',
+        },
+      ],
+    },
   });
 };
