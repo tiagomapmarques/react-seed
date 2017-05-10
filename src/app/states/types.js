@@ -1,10 +1,10 @@
+import { ACTIONS_SUFFIX } from 'react-redux-states';
+
 import {
   typeName as scientistsName,
   valuePropType as scientistsValuePropType,
   actionPropType as scientistsActionPropType,
 } from './scientists/types';
-
-export const ACTIONS_SUFFIX = 'Actions';
 
 export const stateTypes = {
   scientists: scientistsName,
