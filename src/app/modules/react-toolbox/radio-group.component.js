@@ -35,11 +35,10 @@ class RadioGroup extends Component {
   }
 
   render() {
-    const { label, value, checked } = this.props;
+    const { value } = this.props;
     return (
       <RadioGroupBugged
-        label={label}
-        checked={checked}
+        value={value}
       >
         { this.getChildren() }
       </RadioGroupBugged>
