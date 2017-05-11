@@ -8,7 +8,7 @@ import { TITLE } from 'types/title';
 
 const capitalize = title => title.charAt(0).toUpperCase() + title.slice(1);
 
-class ScientistAdd extends Component {
+class ScientistForm extends Component {
 
   constructor(props) {
     super(props);
@@ -70,8 +70,8 @@ class ScientistAdd extends Component {
   }
 }
 
-ScientistAdd.propTypes = {
+ScientistForm.propTypes = {
   scientistsActions: statePropTypes.scientists.scientistsActions.isRequired,
 };
 
-export { ScientistAdd };
+export { ScientistForm };
