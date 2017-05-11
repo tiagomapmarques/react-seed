@@ -51,8 +51,6 @@ class ScientistForm extends Component {
         key={`radio-button-${type}`}
         label={capitalize(TITLE.map(type))}
         value={`${type}`}
-        checked={title === `${type}`}
-        onClick={this.handleChange('title')}
       />
     ));
     return (
@@ -65,7 +63,7 @@ class ScientistForm extends Component {
           required
         />
 
-        <RadioGroup value={title}>
+        <RadioGroup value={title} onChange={this.handleChange('title')}>
           { options }
         </RadioGroup>
 
