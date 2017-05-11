@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import Input from 'react-toolbox/lib/input';
+import { RadioGroup, RadioButton } from 'react-toolbox/lib/radio';
+import { Button } from 'react-toolbox/lib/button';
 
 import { statePropTypes } from 'states';
 import { TITLE } from 'types/title';
-import { TextInput, RadioGroup, Button } from 'modules/material';
 
 const capitalize = title => title.charAt(0).toUpperCase() + title.slice(1);
 
@@ -10,16 +12,23 @@ class ScientistAdd extends Component {
 
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       name: null,
-      title: null
+      title: null,
     };
   }
 
-  handleChange = stateType => value => this.setState({ [stateType]: value });
+  handleNameChange(value) {
+    this.setState({ name: value });
+  }
+
+  handleTitleChange(idk) {
+    console.log(idk);
+  }
 
   handleSubmit() {
     const { name, title } = this.state;
@@ -35,13 +44,27 @@ class ScientistAdd extends Component {
   render() {
     const { name, title } = this.state;
     const options = TITLE.enumValues().map(type => (
-      { id: type, label: capitalize(TITLE.map(type)) }
+      <RadioButton
+        key={`radio-button-${type}`}
+        label={capitalize(TITLE.map(type))}
+        value={`${type}`}
+        // checked={title === `${type}`}
+      />
     ));
     return (
       <div>
-        <TextInput value={name} onChange={this.handleChange('name')} />
-        <RadioGroup value={title} onChange={this.handleChange('title')} options={options}/>
-        <Button label="Add Scientist" onClick={this.handleSubmit} />
+        <Input
+          type="text"
+          label="Awesome Computer Scientist"
+          value={name || ''}
+          onChange={this.handleNameChange}
+        />
+
+        <RadioGroup value={title} onChange={this.handleTitleChange}>
+          { options }
+        </RadioGroup>
+
+        <Button label="Add" raised primary onClick={this.handleSubmit} />
       </div>
     );
   }
