@@ -79,7 +79,7 @@ const baseEnvironment = {
   output: {
     path: distPathAbsolute,
     filename: output,
-    publicPath: '/', //TODO './'
+    publicPath: '/',
   },
   plugins: [],
   resolve: {
@@ -91,6 +91,11 @@ const baseEnvironment = {
       types: `${appPathAbsolute}/types/`,
       config: `${srcPathAbsolute}/environments/index.js`,
       themes: `${srcPathAbsolute}/themes/`,
+
+      // FIXME: remove this hack on RadioButton when these issues are resolved
+      // NOTE:  also have a look at 'radio.component.js'
+      'react-toolbox/lib/radio$': `${appPathAbsolute}/modules/react-toolbox`,
+      'react-toolbox/lib/real-radio$': `${srcPathAbsolute}/../node_modules/react-toolbox/lib/radio`,
     },
     extensions: ['.js', '.css', '.scss'],
     modules: [

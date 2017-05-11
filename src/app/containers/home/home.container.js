@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container } from 'containers/base.container';
 import { connect, stateTypes, statePropTypes } from 'states';
-import { ScientistList, ScientistAdd } from 'modules/scientist';
+import { ScientistList, ScientistForm } from 'modules/scientist';
 
 class Home extends Container {
 
@@ -19,7 +19,9 @@ class Home extends Container {
     const { scientists, scientistsActions } = this.props;
     return (
       <div>
-        <ScientistAdd scientistsActions={scientistsActions} />
+        <p>Howdy! Here's a list of awesome computer scientists.</p>
+        <p>Do you know any others? Add to the list yourself.</p>
+        <ScientistForm scientistsActions={scientistsActions} />
         <ScientistList scientists={scientists || []} onClick={this.handleRemoval}/>
       </div>
     );
