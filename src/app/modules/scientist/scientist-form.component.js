@@ -12,8 +12,6 @@ class ScientistForm extends Component {
 
   constructor(props) {
     super(props);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
@@ -22,23 +20,28 @@ class ScientistForm extends Component {
     };
   }
 
-  handleNameChange(value) {
-    this.setState({ name: value });
-  }
-
-  handleTitleChange(idk) {
-    console.log(idk);
+  handleChange = stateType => value => {
+    this.setState({ [stateType]: value });
   }
 
   handleSubmit() {
     const { name, title } = this.state;
-    if (name && title) {
-      this.props.scientistsActions.add(name, title);
-      this.setState({
-        name: null,
-        title: null,
-      });
-    }
+    const isValid = this.isFormValid();
+    isValid && this.props.scientistsActions.add(name, title);
+    this.setState({
+      name: isValid ? null : name || '',
+      title: isValid ? null : title || '',
+    });
+  }
+
+  isFormValid() {
+    const { name, title } = this.state;
+    return !!(name && title);
+  }
+
+  isFormAnyPristine() {
+    const { name, title } = this.state;
+    return name === null || title === null;
   }
 
   render() {
@@ -48,7 +51,8 @@ class ScientistForm extends Component {
         key={`radio-button-${type}`}
         label={capitalize(TITLE.map(type))}
         value={`${type}`}
-        // checked={title === `${type}`}
+        checked={title === `${type}`}
+        onClick={this.handleChange('title')}
       />
     ));
     return (
@@ -57,14 +61,20 @@ class ScientistForm extends Component {
           type="text"
           label="Awesome Computer Scientist"
           value={name || ''}
-          onChange={this.handleNameChange}
+          onChange={this.handleChange('name')}
+          required
         />
 
-        <RadioGroup value={title} onChange={this.handleTitleChange}>
+        <RadioGroup value={title}>
           { options }
         </RadioGroup>
 
-        <Button label="Add" raised primary onClick={this.handleSubmit} />
+        <Button
+          label="Add"
+          onClick={this.handleSubmit}
+          primary={this.isFormAnyPristine() || this.isFormValid()}
+          accent={!this.isFormAnyPristine() || !this.isFormValid()}
+          raised />
       </div>
     );
   }

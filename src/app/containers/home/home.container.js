@@ -19,6 +19,8 @@ class Home extends Container {
     const { scientists, scientistsActions } = this.props;
     return (
       <div>
+        <p>Howdy! Here's a list of awesome computer scientists.</p>
+        <p>Do you know any others? Add to the list yourself.</p>
         <ScientistForm scientistsActions={scientistsActions} />
         <ScientistList scientists={scientists || []} onClick={this.handleRemoval}/>
       </div>
