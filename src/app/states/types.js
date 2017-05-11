@@ -1,20 +1,19 @@
-import { ACTIONS_SUFFIX } from 'react-redux-states';
-
+import { config } from './config';
 import {
   typeName as scientistsName,
   valuePropType as scientistsValuePropType,
-  actionPropType as scientistsActionPropType,
+  actionsPropType as scientistsActionsPropType,
 } from './scientists/types';
 
 export const stateTypes = {
   scientists: scientistsName,
 };
 
-const buildStatePropType = (typeName, valuePropType, actionPropTypes) => ({
+const getStatePropTypes = (typeName, valuePropType, actionsPropTypes) => ({
   [typeName]: valuePropType,
-  [`${typeName}${ACTIONS_SUFFIX}`]: actionPropTypes,
+  [config.getActionsName(typeName)]: actionsPropTypes,
 });
 
 export const statePropTypes = {
-  scientists: buildStatePropType(scientistsName, scientistsValuePropType, scientistsActionPropType),
+  scientists: getStatePropTypes(scientistsName, scientistsValuePropType, scientistsActionsPropType),
 };

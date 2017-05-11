@@ -8,8 +8,8 @@ const reducers = {
 
 const hotReloader = store => {
   if (module.hot) {
-    module.hot.accept('react-redux-states/reducers', () => {
-      const nextReducer = require('react-redux-states/reducers');  // eslint-disable-line global-require
+    module.hot.accept('react-redux-states/src/reducers', () => {
+      const nextReducer = require('react-redux-states/src/reducers');  // eslint-disable-line global-require
       store.replaceReducer(nextReducer);
     });
   }

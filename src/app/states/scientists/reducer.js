@@ -1,10 +1,26 @@
-import { typeName } from './types';
-import { stateChangers } from './actions';
+import { structReducer } from 'react-redux-states';
 
-export const reducer = (prevState, action) => {
-  const actionType = action.type.split('/');
-  if (actionType[0] === typeName) {
-    return stateChangers[actionType[1]](prevState, action);
-  }
-  return prevState || null;
+import { typeName } from './types';
+
+const reducers = {
+
+  setAll: (prevState, action) => action.scientists,
+
+  add: (prevState, action) => [
+    ...prevState,
+    {
+      id: 1 + prevState.reduce((max, scientist) => Math.max(max, scientist.id), 0),
+      name: action.name,
+      title: action.title,
+    },
+  ],
+
+  remove: (prevState, action) => prevState.filter(scientist => scientist.id !== action.id),
 };
+
+export const stateChangers = Object.keys(reducers).reduce((accumulator, key) => ({
+  ...accumulator,
+  [key]: key,
+}), {});
+
+export const reducer = structReducer(typeName, reducers);

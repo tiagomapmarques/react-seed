@@ -1,9 +1,10 @@
 import { connect as connectState } from 'react-redux-states';
 
-import { actionCreators as scientistsActions } from './scientists/actions';
+import { config } from './config';
+import { actionCreators as scientists } from './scientists/action-creators';
 
 export const actions = {
-  scientistsActions,
+  scientists,
 };
 
-export const connect = (...args) => connectState(actions)(...args);
+export const connect = (...args) => connectState(actions, config)(...args);
