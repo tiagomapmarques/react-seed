@@ -1,5 +1,5 @@
-import { BaseTypeFunctions, BaseTypeMap } from '../base-interfaces.type';
-import { toType, toString, toMapped } from '../base.type';
+import { BaseTypeFunctions, BaseTypeMap } from 'types/base-interfaces.type';
+import { toType, toString, toMapped } from 'types/base.type';
 
 export enum IconType {
   HOME = 1,

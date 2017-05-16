@@ -1,7 +1,8 @@
 import { reducer } from 'react-dedux';
 
-import { config } from '../config';
-import { StateStatus } from '../status';
+import { config } from 'states/config';
+import { StateStatus } from 'states/status';
+
 import {
   typeName, defaultValue, ScientistsStateChangers,
   ScientistsSetAllAction, ScientistsAddAction, ScientistsRemoveAction,

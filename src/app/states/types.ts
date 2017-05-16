@@ -1,6 +1,6 @@
 import { StateValues } from 'react-dedux';
-import { ScientistsStateActions, ScientistsStateValue } from './scientists/types';
-export * from './scientists/types';
+
+import { ScientistsStateActions, ScientistsStateValue } from 'states/scientists/types';
 
 export interface AppStateValues extends StateValues {
   scientists: ScientistsStateValue;
@@ -15,3 +15,5 @@ export type AppStateType = 'scientists';
 export const AppState: { [key: string]: AppStateType } = {
   scientists: 'scientists',
 }
+
+export * from 'states/scientists/types';

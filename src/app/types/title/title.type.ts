@@ -1,5 +1,5 @@
-import { BaseTypeFunctions } from '../base-interfaces.type';
-import { toType, toString, toMapped } from '../base.type';
+import { BaseTypeFunctions } from 'types/base-interfaces.type';
+import { toType, toString, toMapped } from 'types/base.type';
 
 export enum TitleType {
   MISTER = 1,

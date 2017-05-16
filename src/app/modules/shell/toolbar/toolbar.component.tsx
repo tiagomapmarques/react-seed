@@ -1,7 +1,7 @@
 import * as React from 'react';
-import AppBar from 'react-toolbox/lib/app_bar';
+import { AppBar } from 'react-toolbox';
 
-import { SimpleComponent } from '../../base.component';
+import { SimpleComponent } from 'modules/base.component';
 
 const styles = require('./toolbar.style');
 

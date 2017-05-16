@@ -1,6 +1,6 @@
 import { createStore as createStoreState, StateChangerGroupList } from 'react-dedux';
 
-import { stateChangers as scientists } from './scientists/state-changers';
+import { stateChangers as scientists } from 'states/scientists/state-changers';
 
 const stateChangers: StateChangerGroupList = {
   scientists,

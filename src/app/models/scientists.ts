@@ -1,4 +1,4 @@
-import { TITLE, TitleType, NumberType } from '../types';
+import { TITLE, TitleType, NumberType } from 'types';
 
 export interface ScientistResponse {
   id: string | number;

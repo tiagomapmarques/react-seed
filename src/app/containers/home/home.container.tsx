@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { Container, ContainerProps } from '../base.container';
-import { AppState, connect, ScientistsStateProps } from '../../states';
-import { defaultValue } from '../../states/scientists/types';
-import { ScientistList, ScientistForm } from '../../modules/scientist';
+import { Container, ContainerProps } from 'containers/base.container';
+import { AppState, connect, ScientistsStateProps } from 'states';
+import { defaultValue } from 'states/scientists/types';
+import { ScientistList, ScientistForm } from 'modules/scientist';
 
 export type HomeContainerProps = ContainerProps & ScientistsStateProps;
 

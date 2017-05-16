@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-dedux';
 
-import { createStore, AppStateValues } from './states';
-import { Routing } from './containers/routing';
+import { createStore, AppStateValues } from 'states';
+import { Routing } from 'containers/routing';
 
 require('./index.style');
 

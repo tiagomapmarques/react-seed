@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Container, ContainerProps } from '../base.container';
+import { Container, ContainerProps } from 'containers/base.container';
 
 export type AboutContainerProps = ContainerProps;
 

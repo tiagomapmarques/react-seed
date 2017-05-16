@@ -1,8 +1,8 @@
 import { connect as connectState } from 'react-dedux';
 
-import { config } from './config';
-import { AppStateType } from './types';
-import { actions as scientists } from './scientists/actions';
+import { config } from 'states/config';
+import { AppStateType } from 'states/types';
+import { actions as scientists } from 'states/scientists/actions';
 
 const actions = {
   scientists,

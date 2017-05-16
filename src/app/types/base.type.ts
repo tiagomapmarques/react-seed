@@ -1,4 +1,4 @@
-import { Enum, EnumValue, BaseTypeMap } from './base-interfaces.type';
+import { Enum, EnumValue, BaseTypeMap } from 'types/base-interfaces.type';
 
 export const toType = (enumString: string, entity: Enum): EnumValue => {
   return typeof enumString === 'string' ? entity[enumString.toUpperCase()] : null;

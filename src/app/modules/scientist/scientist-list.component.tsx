@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ScientistsStateValue } from '../../states';
+import { ScientistsStateValue } from 'states';
 
 export interface ScientistListProps {
   scientists: ScientistsStateValue;

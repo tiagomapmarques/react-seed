@@ -37,7 +37,17 @@ const baseEnvironment = {
     publicPath: '/',
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.css', '.scss']
+    extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
+    alias: {
+      containers: `${appPathAbsolute}/containers/`,
+      models: `${appPathAbsolute}/models/`,
+      modules: `${appPathAbsolute}/modules/`,
+      services: `${appPathAbsolute}/services/`,
+      states: `${appPathAbsolute}/states/`,
+      types: `${appPathAbsolute}/types/`,
+      config: `${srcPathAbsolute}/environments/index.js`,
+      themes: `${srcPathAbsolute}/themes/`,
+    },
   },
   plugins: [],
   module: {

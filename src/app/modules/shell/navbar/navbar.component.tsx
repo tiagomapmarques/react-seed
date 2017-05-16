@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-toolbox/lib/button';
+import { Button } from 'react-toolbox';
 
-import { SimpleComponent } from '../../base.component';
+import { SimpleComponent } from 'modules/base.component';
 
 const styles = require('./navbar.style');
 

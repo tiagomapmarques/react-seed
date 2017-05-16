@@ -15,7 +15,20 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "removeComments": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": {
+      "react-toolbox": [ "src/app/modules/react-toolbox.ts" ],
+      "containers/*": [ "src/app/containers/*" ],
+      "models/*": [ "src/app/models/*" ],
+      "modules/*": [ "src/app/modules/*" ],
+      "services/*": [ "src/app/services/*" ],
+      "states": [ "src/app/states/index.ts" ],
+      "states/*": [ "src/app/states/*" ],
+      "types": [ "src/app/types/index.ts" ],
+      "types/*": [ "src/app/types/*" ],
+      "themes/*": [ "src/themes/*" ],
+      "config": [ "environments/index.js" ]
+    }
   },
   "include": [
     "src/app/**/*.ts",

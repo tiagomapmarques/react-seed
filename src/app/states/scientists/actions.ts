@@ -1,7 +1,11 @@
-import { ScientistsService } from '../../services/scientists';
-import { config } from '../config';
-import { StateStatus } from '../status';
-import { typeName, ScientistsStateActions, ScientistsStateChangersNames as stateChangers } from './types';
+import { ScientistsService } from 'services/scientists';
+import { config } from 'states/config';
+import { StateStatus } from 'states/status';
+
+import {
+  typeName, ScientistsStateActions,
+  ScientistsStateChangersNames as stateChangers,
+} from './types';
 
 export const actions: ScientistsStateActions = {
 

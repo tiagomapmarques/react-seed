@@ -1,10 +1,8 @@
 import * as React from 'react';
-import Input from 'react-toolbox/lib/input';
-import { RadioGroup, RadioButton } from 'react-toolbox/lib/radio';
-import { Button } from 'react-toolbox/lib/button';
+import { Input, Button, RadioGroup, RadioButton } from 'react-toolbox';
 
-import { TITLE, TitleType, NumberType } from '../../types';
-import { ScientistsStateActions } from '../../states';
+import { TITLE, TitleType, NumberType } from 'types';
+import { ScientistsStateActions } from 'states';
 
 const capitalize = (title: string) => title.charAt(0).toUpperCase() + title.slice(1);
 

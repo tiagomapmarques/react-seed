@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
-import { ToolbarComponent, NavbarComponent } from '../modules/shell';
-import { HomeContainer } from './home';
-import { AboutContainer } from './about';
+import { ToolbarComponent, NavbarComponent } from 'modules/shell';
+import { HomeContainer } from 'containers/home';
+import { AboutContainer } from 'containers/about';
 
 const routeContainer = (RouteContainer: any) => (props: any) => (<RouteContainer {...props} />);
 
