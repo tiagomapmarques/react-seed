@@ -1,4 +1,4 @@
-import { Scientist } from 'models/scientists';
+import { Scientist } from 'models/scientist';
 import { ScientistsService } from 'services/scientists';
 import { config } from 'states/config';
 import { StateStatus } from 'states/status';

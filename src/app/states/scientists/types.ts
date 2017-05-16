@@ -1,7 +1,7 @@
 import * as Dedux from 'react-dedux';
 
 import { StateStatus } from 'states/status';
-import { Scientist } from 'models/scientists';
+import { Scientist } from 'models/scientist';
 import { TitleType } from 'types';
 
 export const typeName = 'scientists';

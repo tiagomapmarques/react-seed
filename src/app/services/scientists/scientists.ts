@@ -1,4 +1,4 @@
-import { ScientistResponse, Scientist, toScientist } from 'models/scientists';
+import { ScientistResponse, Scientist, toScientist } from 'models/scientist';
 
 export const ScientistsService = {
   fetchAll: (): Promise<Scientist[]> => fetch('/assets/scientists.json')
