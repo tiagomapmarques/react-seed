@@ -1,13 +1,13 @@
 'use strict';
 
-const getConfig = require('./src/environments');
+const getConfig = require('./environments');
 const nodeEnvMap = {
   dev: 'dev',
   dist: 'production',
   test: 'test',
 }
 
-module.exports = (configName) => {
+module.exports = configName => {
   const env = getConfig(configName);
 
   // Set the global environment
