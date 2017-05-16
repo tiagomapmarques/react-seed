@@ -1,14 +1,11 @@
-import { reducer } from 'react-dedux';
-
-import { config } from 'states/config';
 import { StateStatus } from 'states/status';
 
 import {
-  typeName, defaultValue, ScientistsStateChangers,
+  ScientistsStateChangers,
   ScientistsSetAllAction, ScientistsAddAction, ScientistsRemoveAction,
 } from './types';
 
-const stateChangersObject: ScientistsStateChangers = {
+export const stateChangers: ScientistsStateChangers = {
 
   loading: (prevState, _) => ({ ...prevState, status: StateStatus.loading }),
 
@@ -31,5 +28,3 @@ const stateChangersObject: ScientistsStateChangers = {
     list: (prevState.list || []).filter(scientist => scientist.id !== action.id),
   }),
 };
-
-export const stateChangers = reducer(typeName, defaultValue, stateChangersObject, config);

@@ -1,3 +1,4 @@
+import { Scientist } from 'models/scientists';
 import { ScientistsService } from 'services/scientists';
 import { config } from 'states/config';
 import { StateStatus } from 'states/status';
@@ -17,7 +18,7 @@ export const actions: ScientistsStateActions = {
   },
 
   fetchAll: () => (dispatch, getState) => ScientistsService.fetchAll()
-    .then(scientists => actions.setAll({
+    .then((scientists: Scientist[]) => actions.setAll({
       status: StateStatus.ready,
       list: scientists || [],
     })(dispatch, getState))
