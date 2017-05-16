@@ -4,6 +4,7 @@ const path = require('path');
 const srcPath = './src/';
 const appPath = `${srcPath}app/`;
 const distPath = './dist/';
+const pathAbsolute = path.resolve('.');
 const srcPathAbsolute = path.resolve(srcPath);
 const appPathAbsolute = path.resolve(appPath);
 const distPathAbsolute = path.resolve(distPath);
@@ -45,8 +46,8 @@ const baseEnvironment = {
       services: `${appPathAbsolute}/services/`,
       states: `${appPathAbsolute}/states/`,
       types: `${appPathAbsolute}/types/`,
-      config: `${srcPathAbsolute}/environments/index.js`,
       themes: `${srcPathAbsolute}/themes/`,
+      config: `${pathAbsolute}/environments/index.js`,
     },
   },
   plugins: [],
