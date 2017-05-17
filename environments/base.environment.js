@@ -14,13 +14,11 @@ const output = 'app.js';
 
 const devPort = 8000;
 
-const defaultStyleOptions = {
+const cssOptions = {
   modules: true,
-};
-const cssOptions = Object.assign({
   importLoaders: 1,
   localIdentName: '[name]-[local]-[hash:base64:5]',
-}, defaultStyleOptions);
+};
 
 const baseEnvironment = {
   context: appPathAbsolute,
@@ -76,7 +74,7 @@ const baseEnvironment = {
         test: /\.scss$/,
         loaders: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: defaultStyleOptions },
+          { loader: 'css-loader', options: cssOptions },
           { loader: 'sass-loader' },
         ],
       },
