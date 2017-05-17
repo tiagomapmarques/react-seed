@@ -1,0 +1,13 @@
+@import '~themes';
+
+.scientistForm {
+  max-width: 600px;
+}
+
+.radioButton {
+  @media ($tablet-min) {
+    display: inline-block;
+    width: 33%;
+  }
+  cursor: pointer;
+}

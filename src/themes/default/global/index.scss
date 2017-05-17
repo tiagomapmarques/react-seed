@@ -1,0 +1,22 @@
+
+// GLOBAL DEFINITIONS
+@mixin globals() {
+  html, body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    box-sizing: border-box;
+    min-width: 320px;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+}
+
+@import 'variables';
+@import 'icon';
+@import 'grid';

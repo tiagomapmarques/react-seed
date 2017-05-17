@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "noEmitOnError": true,
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "strictNullChecks": true,
+    "paths": {
+      "react-toolbox": [ "src/app/modules/react-toolbox.ts" ],
+      "containers/*": [ "src/app/containers/*" ],
+      "models/*": [ "src/app/models/*" ],
+      "modules/*": [ "src/app/modules/*" ],
+      "services/*": [ "src/app/services/*" ],
+      "states": [ "src/app/states/index.ts" ],
+      "states/*": [ "src/app/states/*" ],
+      "types": [ "src/app/types/index.ts" ],
+      "types/*": [ "src/app/types/*" ],
+      "themes/*": [ "src/themes/*" ],
+      "config": [ "environments/index.js" ]
+    }
+  },
+  "include": [
+    "src/app/**/*.ts",
+    "src/app/**/*.tsx",
+    "src/app/**/*.css",
+    "src/app/**/*.scss",
+    "src/themes/**/*.css",
+    "src/themes/**/*.scss"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

@@ -1,0 +1,65 @@
+@import '~themes';
+
+.scientistList {
+  h3 {
+    margin-top: 40px;
+  }
+
+  ul {
+    padding-left: $appbar-h-padding;
+  }
+}
+
+.listItem {
+  list-style: none;
+  display: table;
+  cursor: pointer;
+
+  div {
+    display: inline;
+  }
+
+  span + span {
+    margin-left: 4px;
+  }
+
+  &:before {
+    @include icon-content('\E8A6');
+    vertical-align: bottom;
+    margin-right: 4px;
+  }
+
+  &:after {
+    content: ';';
+  }
+
+  &:hover {
+    div {
+      text-decoration: line-through;
+    }
+
+    &:before {
+      color: red;
+      @include icon-content('\E5CD');
+      text-decoration: none;
+    }
+
+    &:active:before {
+      @include icon-content('\E5C9');
+    }
+  }
+}
+
+.title {
+  &Mister {
+    color: royalblue;
+  }
+
+  &Miss {
+    color: pink;
+  }
+
+  &Doctor {
+    font-weight: bold;
+  }
+}
