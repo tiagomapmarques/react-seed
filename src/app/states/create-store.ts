@@ -1,16 +1,13 @@
-import { createStore as createStoreState, StateChangerGroupList, StateDefaultValues } from 'react-dedux';
+import * as Dedux from 'react-dedux';
 
-import { config } from 'states/config';
-import { stateChangers as scientists } from 'states/scientists/state-changers';
+import { stateChangers as scientistsChangers } from 'states/scientists/state-changers';
 import { defaultValue as scientistsDefault } from 'states/scientists/types';
 
-const stateChangers: StateChangerGroupList = {
-  scientists,
+const stateChangers: Dedux.StateChangerGroupWithDefaultsList = {
+  scientists: {
+    defaultValue: scientistsDefault,
+    stateChangers: scientistsChangers,
+  },
 };
 
-const defaultValues: StateDefaultValues = {
-  scientists: scientistsDefault,
-};
-
-export const createStore = <S>(initialState?: S) =>
-  createStoreState<S>(stateChangers, defaultValues, config)(initialState);
+export const createStore = <S>(initialState?: S) => Dedux.createStore<S>(stateChangers)(initialState);

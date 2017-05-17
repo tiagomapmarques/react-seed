@@ -1,6 +1,7 @@
+import * as Dedux from 'react-dedux';
+
 import { Scientist } from 'models/scientist';
 import { ScientistsService } from 'services/scientists';
-import { config } from 'states/config';
 import { StateStatus } from 'states/status';
 
 import {
@@ -8,11 +9,13 @@ import {
   ScientistsStateChangersNames as stateChangers,
 } from './types';
 
+const getType = Dedux.getConfig().getActionType;
+
 export const actions: ScientistsStateActions = {
 
   init: () => (dispatch, getState) => {
     if (getState().scientists.status === StateStatus.start) {
-      dispatch({ ...config.getActionType(typeName, stateChangers.loading) });
+      dispatch({ ...getType(typeName, stateChangers.loading) });
       actions.fetchAll()(dispatch, getState);
     }
   },
@@ -29,20 +32,20 @@ export const actions: ScientistsStateActions = {
 
   setAll: (scientists) => dispatch =>
     dispatch({
-      ...config.getActionType(typeName, stateChangers.setAll),
+      ...getType(typeName, stateChangers.setAll),
       scientists,
     }),
 
   add: (name, title) => dispatch =>
     dispatch({
-      ...config.getActionType(typeName, stateChangers.add),
+      ...getType(typeName, stateChangers.add),
       name,
       title,
     }),
 
   remove: (id: number|string) => dispatch =>
     dispatch({
-      ...config.getActionType(typeName, stateChangers.remove),
+      ...getType(typeName, stateChangers.remove),
       id,
     }),
 };
