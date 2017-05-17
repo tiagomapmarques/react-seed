@@ -4,7 +4,8 @@ import { Input, Button, RadioGroup, RadioButton } from 'react-toolbox';
 import { TITLE, TitleType, NumberType } from 'types';
 import { ScientistsStateActions } from 'states';
 
-const capitalize = (title: string) => title.charAt(0).toUpperCase() + title.slice(1);
+import { capitalise } from './capitalise';
+const styles = require('./scientist-form.style');
 
 export interface ScientistFormProps {
   scientistsActions: ScientistsStateActions;
@@ -43,7 +44,7 @@ export class ScientistForm extends React.Component<ScientistFormProps, Scientist
     isValid && this.props.scientistsActions.add(name as string, title as TitleType);
     this.setState({
       name: isValid ? null : (name || ''),
-      title: isValid ? null : title,
+      title: isValid ? null : (title || 0),
     });
   }
 
@@ -62,12 +63,13 @@ export class ScientistForm extends React.Component<ScientistFormProps, Scientist
     const options = TITLE.enumValues().map((type: TitleType) => (
       <RadioButton
         key={`radio-button-${type}`}
-        label={capitalize(TITLE.map(type))}
+        label={capitalise(TITLE.map(type))}
         value={`${type}`}
+        className={styles.radioButton}
       />
     ));
     return (
-      <div>
+      <div className={styles.scientistForm}>
         <Input
           type="text"
           label="Awesome Computer Scientist"

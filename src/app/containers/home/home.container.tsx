@@ -5,6 +5,8 @@ import { AppState, connect, ScientistsStateProps } from 'states';
 import { defaultValue } from 'states/scientists/types';
 import { ScientistList, ScientistForm } from 'modules/scientist';
 
+const styles = require('./home.style');
+
 export type HomeContainerProps = ContainerProps & ScientistsStateProps;
 
 class Home extends Container<ScientistsStateProps> {
@@ -21,7 +23,7 @@ class Home extends Container<ScientistsStateProps> {
   render() {
     const { scientists, scientistsActions } = this.props;
     return (
-      <div>
+      <div className={styles.homeContainer}>
         <p>Howdy! Here's a list of awesome computer scientists.</p>
         <p>Do you know any others? Add to the list yourself.</p>
         <ScientistForm scientistsActions={scientistsActions} />

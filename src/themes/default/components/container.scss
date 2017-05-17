@@ -1,0 +1,7 @@
+
+%container {
+  @include grid-format(10, 10, 12);
+
+  margin-top: 24px;
+  padding: 0 $appbar-h-padding;
+}

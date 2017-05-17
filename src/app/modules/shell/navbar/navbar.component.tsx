@@ -20,7 +20,7 @@ export class NavbarComponent extends SimpleComponent {
 
   render() {
     return (
-      <div>
+      <div className={styles.navbar}>
         { this.buildNavbarItems() }
       </div>
     );

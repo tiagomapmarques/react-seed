@@ -2,13 +2,15 @@ import * as React from 'react';
 
 import { Container, ContainerProps } from 'containers/base.container';
 
+const styles = require('./about.style');
+
 export type AboutContainerProps = ContainerProps;
 
 export class AboutContainer extends Container<AboutContainerProps> {
 
   render() {
     return (
-      <div>
+      <div className={styles.aboutContainer}>
         <p>React Seed is a starter project that implements best practices in coding, building and testing React apps.</p>
         <p>It is a sibling of the <a href="https://github.com/tiagomapmarques/angular-seed">Agular Seed</a> project</p>
 

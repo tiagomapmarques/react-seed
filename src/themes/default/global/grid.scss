@@ -1,0 +1,31 @@
+
+$grid-columns: 12;
+@mixin grid-col($cols, $max-cols: $grid-columns) {
+  @if($cols > 0) {
+    width: $cols*100%/$max-cols;
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  %grid-col-#{$i} {
+    @include grid-col($i, $grid-columns);
+  }
+}
+
+@mixin grid-format($desktop, $tablet, $mobile) {
+  @if(type-of($desktop) == number) {
+    @include grid-col($desktop);
+  }
+
+  @if(type-of($tablet) == number) {
+    @media ($tablet-max) {
+      @include grid-col($tablet);
+    }
+  }
+
+  @if(type-of($mobile) == number) {
+    @media ($mobile-max) {
+      @include grid-col($mobile);
+    }
+  }
+}
