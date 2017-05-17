@@ -15,12 +15,8 @@ export const stateChangers: ScientistsStateChangers = {
     status: StateStatus.ready,
     list: [
       ...(prevState.list || []),
-      {
-        id: 1 + (prevState.list || []).reduce((max, scientist) => Math.max(max, scientist.id), 0),
-        name: action.name,
-        title: action.title,
-      },
-    ]
+      action.scientist,
+    ],
   }),
 
   remove: (prevState, action: ScientistsRemoveAction) => ({

@@ -36,16 +36,21 @@ export const actions: ScientistsStateActions = {
       scientists,
     }),
 
-  add: (name, title) => dispatch =>
-    dispatch({
+  add: (name, title) => (dispatch, getState) => ScientistsService.add(name, title, getState().scientists.list)
+    .then((scientist: Scientist) => dispatch({
       ...getType(typeName, stateChangers.add),
-      name,
-      title,
+      scientist,
+    }))
+    .catch(() => {
+      // TODO treat the error
     }),
 
-  remove: (id: number|string) => dispatch =>
-    dispatch({
+  remove: (id) => (dispatch, getState) => ScientistsService.remove(id, getState().scientists.list)
+    .then((removedId: number) => dispatch({
       ...getType(typeName, stateChangers.remove),
-      id,
+      id: removedId,
+    }))
+    .catch(() => {
+      // TODO treat the error
     }),
 };

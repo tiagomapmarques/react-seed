@@ -33,8 +33,7 @@ export interface ScientistsSetAllAction extends Dedux.ActionObject {
 }
 
 export interface ScientistsAddAction extends Dedux.ActionObject {
-  name: string;
-  title: TitleType;
+  scientist: Scientist;
 }
 
 export interface ScientistsRemoveAction extends Dedux.ActionObject {
