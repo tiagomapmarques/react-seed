@@ -3,7 +3,7 @@
   @include grid-row();
   @include margin($neat-unit $neat-unit*2 0 $neat-unit*2);
 
-  @include grid-media($neat-desktop-grid) {
+  @include grid-media($neat-grid-desktop) {
     max-width: $neat-unit*60;
   }
 

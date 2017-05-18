@@ -1,6 +1,6 @@
 @import '~themes';
 
-$radio-button-desktop: (
+$custom-grid-desktop: (
   columns: $neat-columns,
   gutter: 80px,
   media: $neat-desktop-min-width,
@@ -11,13 +11,13 @@ $radio-button-desktop: (
 }
 
 .radioButton {
-  @include grid-column(12, $neat-mobile-grid);
+  @include grid-column(12, $neat-grid-mobile);
 
-  @include grid-media($neat-tablet-grid){
-    @include grid-column(4, $neat-tablet-grid);
+  @include grid-media($neat-grid-tablet){
+    @include grid-column(4, $neat-grid-tablet);
   }
-  @include grid-media($radio-button-desktop){
-    @include grid-column(4, $radio-button-desktop);
+  @include grid-media($custom-grid-desktop){
+    @include grid-column(4, $custom-grid-desktop);
   }
 
   &:first-child {

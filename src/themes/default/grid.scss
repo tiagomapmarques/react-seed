@@ -1,18 +1,18 @@
 
-$neat-default-grid: (
+$neat-grid-default: (
   columns: $neat-columns,
   gutter: 0,
 );
-$neat-mobile-grid: (
+$neat-grid-mobile: (
   columns: $neat-columns,
   gutter: 0,
 );
-$neat-tablet-grid: (
+$neat-grid-tablet: (
   columns: $neat-columns,
   gutter: $neat-unit*2,
   media: $neat-tablet-min-width,
 );
-$neat-desktop-grid: (
+$neat-grid-desktop: (
   columns: $neat-columns,
   gutter: $neat-unit*2,
   media: $neat-desktop-min-width,
@@ -24,18 +24,18 @@ $neat-desktop-grid: (
 
 @mixin grid-col($desktop, $tablet, $mobile) {
   @if(type-of($mobile) == number) {
-    @include grid-column($mobile, $neat-mobile-grid);
+    @include grid-column($mobile, $neat-grid-mobile);
   }
 
   @if(type-of($tablet) == number) {
-    @include grid-media($neat-tablet-grid){
-      @include grid-column($tablet, $neat-tablet-grid);
+    @include grid-media($neat-grid-tablet){
+      @include grid-column($tablet, $neat-grid-tablet);
     }
   }
 
   @if(type-of($desktop) == number) {
-    @include grid-media($neat-desktop-grid){
-      @include grid-column($desktop, $neat-desktop-grid);
+    @include grid-media($neat-grid-desktop){
+      @include grid-column($desktop, $neat-grid-desktop);
     }
   }
 }
