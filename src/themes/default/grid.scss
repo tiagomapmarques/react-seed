@@ -28,13 +28,13 @@ $neat-grid-desktop: (
   }
 
   @if(type-of($tablet) == number) {
-    @include grid-media($neat-grid-tablet){
+    @include grid-media($neat-grid-tablet) {
       @include grid-column($tablet, $neat-grid-tablet);
     }
   }
 
   @if(type-of($desktop) == number) {
-    @include grid-media($neat-grid-desktop){
+    @include grid-media($neat-grid-desktop) {
       @include grid-column($desktop, $neat-grid-desktop);
     }
   }
