@@ -1,13 +1,29 @@
 @import '~themes';
 
-.scientistForm {
-  max-width: 600px;
+$radio-button-desktop: (
+  columns: $neat-columns,
+  gutter: 80px,
+  media: $neat-desktop-min-width,
+);
+
+.scientistRadioGroup {
+  @include grid-row();
 }
 
 .radioButton {
-  @media ($tablet-min) {
-    display: inline-block;
-    width: 33%;
+  @include grid-column(12, $neat-mobile-grid);
+
+  @include grid-media($neat-tablet-grid){
+    @include grid-column(4, $neat-tablet-grid);
   }
+  @include grid-media($radio-button-desktop){
+    @include grid-column(4, $radio-button-desktop);
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
   cursor: pointer;
+  margin-bottom: $neat-unit*2;
 }

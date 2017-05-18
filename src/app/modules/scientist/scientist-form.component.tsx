@@ -69,7 +69,7 @@ export class ScientistForm extends React.Component<ScientistFormProps, Scientist
       />
     ));
     return (
-      <div className={styles.scientistForm}>
+      <div>
         <Input
           type="text"
           label="Awesome Computer Scientist"
@@ -78,7 +78,7 @@ export class ScientistForm extends React.Component<ScientistFormProps, Scientist
           required
         />
 
-        <RadioGroup value={`${title as number}`} onChange={this.handleTitleChange}>
+        <RadioGroup value={`${title as number}`} onChange={this.handleTitleChange} className={styles.scientistRadioGroup}>
           { options }
         </RadioGroup>
 
@@ -87,7 +87,8 @@ export class ScientistForm extends React.Component<ScientistFormProps, Scientist
           onClick={this.handleSubmit}
           primary={this.isFormAnyPristine() || this.isFormValid()}
           accent={!this.isFormAnyPristine() || !this.isFormValid()}
-          raised />
+          raised
+        />
       </div>
     );
   }
