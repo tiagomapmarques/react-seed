@@ -1,4 +1,11 @@
+@import '~bourbon';
+@import '~neat';
 
-// Import component-specific style
-@import 'global/index';
+// Import general styling
+@import 'variables';
+@import 'grid';
+@import 'icon';
+
+// Import component-specific styling
+@import 'components/global';
 @import 'components/container';

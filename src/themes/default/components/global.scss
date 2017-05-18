@@ -1,0 +1,14 @@
+
+@mixin html() {
+  html, body {
+    min-width: $neat-mobile-min-width;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}

@@ -1,35 +1,32 @@
 @import '~themes';
 
-.scientistList {
-  h3 {
-    margin-top: 40px;
-  }
+$whiteSpacePx: 4px;
 
-  ul {
-    padding-left: $appbar-h-padding;
-  }
+.scientistList {
+  margin-top: $neat-unit*2;
 }
 
 .listItem {
   list-style: none;
   display: table;
+  margin-bottom: $neat-unit/2;
   cursor: pointer;
 
-  div {
+  & > * {
     display: inline;
   }
 
   span + span {
-    margin-left: 4px;
+    margin-left: $whiteSpacePx;
   }
 
-  &:before {
+  &::before {
     @include icon-content('\E8A6');
     vertical-align: bottom;
-    margin-right: 4px;
+    margin-right: $whiteSpacePx;
   }
 
-  &:after {
+  &::after {
     content: ';';
   }
 
@@ -44,7 +41,7 @@
       text-decoration: none;
     }
 
-    &:active:before {
+    &:active::before {
       @include icon-content('\E5C9');
     }
   }
