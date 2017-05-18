@@ -2,13 +2,4 @@
 
 .aboutContainer {
   @extend %container;
-
-  h3 {
-    margin-top: $neat-unit*2;
-    margin-bottom: 0;
-  }
-
-  li {
-    margin-bottom: $neat-unit/2;
-  }
 }

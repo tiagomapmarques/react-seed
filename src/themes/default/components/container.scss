@@ -10,4 +10,13 @@
   & > * {
     @include grid-col(12, 10, 12);
   }
+
+  h3 {
+    margin-top: $neat-unit*2;
+    margin-bottom: 0;
+  }
+
+  li {
+    margin-bottom: $neat-unit/2;
+  }
 }
