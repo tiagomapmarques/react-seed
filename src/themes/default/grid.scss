@@ -1,0 +1,41 @@
+
+$neat-default-grid: (
+  columns: $neat-columns,
+  gutter: 0,
+);
+$neat-mobile-grid: (
+  columns: $neat-columns,
+  gutter: 0,
+);
+$neat-tablet-grid: (
+  columns: $neat-columns,
+  gutter: $neat-unit*2,
+  media: $neat-tablet-min-width,
+);
+$neat-desktop-grid: (
+  columns: $neat-columns,
+  gutter: $neat-unit*2,
+  media: $neat-desktop-min-width,
+);
+
+@mixin grid-row() {
+  @include grid-container;
+}
+
+@mixin grid-col($desktop, $tablet, $mobile) {
+  @if(type-of($mobile) == number) {
+    @include grid-column($mobile, $neat-mobile-grid);
+  }
+
+  @if(type-of($tablet) == number) {
+    @include grid-media($neat-tablet-grid){
+      @include grid-column($tablet, $neat-tablet-grid);
+    }
+  }
+
+  @if(type-of($desktop) == number) {
+    @include grid-media($neat-desktop-grid){
+      @include grid-column($desktop, $neat-desktop-grid);
+    }
+  }
+}
