@@ -1,12 +1,12 @@
-import { ScientistResponse, Scientist, toScientist } from 'models/scientist';
+import { ScientistObjectResponse, Scientist } from 'models/scientist';
 import { TITLE, TitleType } from 'types';
 
 export const ScientistsService = {
 
   fetchAll: (): Promise<Scientist[]> => fetch('/assets/scientists.json')
     .then((result: any) => result.json())
-    .then((result: any): ScientistResponse[] => result.scientists)
-    .then((scientists: ScientistResponse[]): Scientist[] => scientists.map(toScientist))
+    .then((result: any): ScientistObjectResponse[] => result.scientists)
+    .then((scientists: ScientistObjectResponse[]): Scientist[] => scientists.map(Scientist.fromResponse))
     .catch(() => {
       // TODO log the error
     }),
@@ -19,7 +19,7 @@ export const ScientistsService = {
       name,
       title: TITLE.toJson(title),
     })
-    .then((scientist: ScientistResponse): Scientist => toScientist(scientist)),
+    .then(Scientist.fromResponse),
 
   remove: (id: number, list: Scientist[]): Promise<number> =>
     // NOTE: Promise to mock a POST method that asks the Backend to remove a scientist
