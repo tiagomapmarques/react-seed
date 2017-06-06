@@ -10,14 +10,13 @@ const devEnvironment = Object.assign({}, baseEnvironment, {
     'webpack-dev-server/client?http://0.0.0.0:8000/',
     baseEnvironment.entry,
   ],
-  plugins: [
-    ...baseEnvironment.plugins,
+  plugins: (baseEnvironment.plugins || []).concat([
     new CopyWebpackPlugin([{
       from: '../assets/',
       to: 'assets/',
     }]),
     new webpack.NoEmitOnErrorsPlugin(),
-  ],
+  ]),
 });
 
 module.exports = devEnvironment;
