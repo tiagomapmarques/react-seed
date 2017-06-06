@@ -14,11 +14,10 @@ const loadersToDist = loaders => loaders.map(loader => {
 
 const distEnvironment = Object.assign({}, baseEnvironment, {
   cache: false,
-  plugins: [
-    ...baseEnvironment.plugins,
+  plugins: (baseEnvironment.plugins || []).concat([
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-  ],
+  ]),
   module: Object.assign({}, baseEnvironment.module, {
     rules: baseEnvironment.module.rules.map(rule => {
       if (rule.loaders) {
