@@ -9,7 +9,7 @@ const styles = require('./home.style');
 
 export type HomeContainerProps = ContainerProps & ScientistsStateProps;
 
-class Home extends Container<ScientistsStateProps> {
+class Home extends Container<HomeContainerProps> {
 
   constructor(props: HomeContainerProps) {
     super(props);

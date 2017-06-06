@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
+import { SimpleComponent } from 'modules/base.component';
 import { ToolbarComponent, NavbarComponent } from 'modules/shell';
 import { HomeContainer } from 'containers/home';
 import { AboutContainer } from 'containers/about';
 
-const routeContainer = (RouteContainer: any) => (props: any) => (<RouteContainer {...props} />);
-
-class Routing extends React.Component<{}, {}> {
+class Routing extends SimpleComponent {
 
   render() {
     return (
@@ -16,8 +15,8 @@ class Routing extends React.Component<{}, {}> {
           <ToolbarComponent />
           <NavbarComponent />
           <Switch>
-            <Route exact path="/" component={routeContainer(HomeContainer)}/>
-            <Route exact path="/about" component={routeContainer(AboutContainer)}/>
+            <Route exact path="/" component={HomeContainer}/>
+            <Route exact path="/about" component={AboutContainer}/>
             <Redirect to="/"/>
           </Switch>
         </div>
