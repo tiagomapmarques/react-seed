@@ -1,5 +1,5 @@
 import { TITLE, TitleType, NumberType } from 'types';
-import { Model, ModelProperty } from 'models/base.model';
+import { JsonModel, JsonModelProperty } from 'typescript-json-model';
 
 export interface ScientistObjectResponse {
   id: number;
@@ -13,12 +13,12 @@ export interface ScientistObject {
   title: TitleType;
 }
 
-export class Scientist extends Model<ScientistObject> implements ScientistObject {
-  @ModelProperty
+export class Scientist extends JsonModel<ScientistObject> implements ScientistObject {
+  @JsonModelProperty
   public id: number;
-  @ModelProperty
+  @JsonModelProperty
   public name: string;
-  @ModelProperty
+  @JsonModelProperty
   public title: TitleType;
 
   constructor(scientist: ScientistObject) {

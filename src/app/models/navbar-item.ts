@@ -1,5 +1,5 @@
 import { IconType } from 'types';
-import { Model, ModelProperty } from 'models/base.model';
+import { JsonModel, JsonModelProperty } from 'typescript-json-model';
 
 export interface NavbarItemObject {
   id: number;
@@ -8,14 +8,14 @@ export interface NavbarItemObject {
   icon: IconType;
 }
 
-export class NavbarItem extends Model<NavbarItemObject> implements NavbarItemObject {
-  @ModelProperty
+export class NavbarItem extends JsonModel<NavbarItemObject> implements NavbarItemObject {
+  @JsonModelProperty
   public id: number;
-  @ModelProperty
+  @JsonModelProperty
   public title: string;
-  @ModelProperty
+  @JsonModelProperty
   public link: string;
-  @ModelProperty
+  @JsonModelProperty
   public icon: IconType;
 
   constructor(navbarItem: NavbarItemObject) {
