@@ -41,7 +41,6 @@
   "dependencies": {
     "capitalize": "^1.0.0",
     "classnames": "^2.2.5",
-    "normalize-scss": "^7.0.0",
     "react": "~15.4.0",
     "react-dedux": "https://github.com/tiagomapmarques/react-dedux.git",
     "react-dom": "~15.4.0",
