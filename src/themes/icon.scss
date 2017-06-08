@@ -1,0 +1,9 @@
+
+@mixin iconAfterContent($unicode) {
+  @extend %icon;
+  font-style: normal;
+  &::after {
+    font-family: 'Material Icons';
+    content: $unicode;
+  }
+}
