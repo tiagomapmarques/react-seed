@@ -1,0 +1,13 @@
+@import '~themes';
+
+.home {
+  @include iconAfterContent('\E88A');
+}
+
+.about {
+  @include iconAfterContent('\E88F');
+}
+
+.info {
+  @include iconAfterContent('\E88F');
+}
