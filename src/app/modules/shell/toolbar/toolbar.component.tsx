@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { AppBar } from 'react-toolbox';
 
 import { SimpleComponent } from 'modules/base.component';
 
@@ -9,7 +8,11 @@ export class ToolbarComponent extends SimpleComponent {
 
   render() {
     return (
-      <AppBar title="React Seed" className={styles.brand} />
+      <div className={styles.toolbar}>
+        <div className={styles.toolbarContent}>
+          <h1 className={styles.brand}>React Seed</h1>
+        </div>
+      </div>
     );
   }
 }
