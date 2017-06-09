@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ScientistsStateValue } from 'states';
 import { TITLE, TitleType } from 'types';
 
-import { capitalise } from './capitalise';
+import * as capitalize from 'capitalize';
 const styles = require('./scientist-list.style');
 
 export interface ScientistListProps {
@@ -33,7 +33,7 @@ export class ScientistList extends React.Component<ScientistListProps, Scientist
   }
 
   getTitle(title: TitleType): any {
-    return capitalise(TITLE.map(title));
+    return capitalize(TITLE.map(title));
   }
 
   buildScientistList(scientists: ScientistsStateValue) {

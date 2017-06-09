@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Input, Button, RadioGroup, RadioButton } from 'react-toolbox';
+// import { Input, Button, RadioGroup, RadioButton } from 'react-toolbox';
 
-import { TITLE, TitleType, NumberType } from 'types';
+import { /*TITLE,*/ TitleType, NumberType } from 'types';
 import { ScientistsStateActions } from 'states';
+import { Component } from 'modules/base.component';
 
-import { capitalise } from './capitalise';
-const styles = require('./scientist-form.style');
+// import { capitalise } from './capitalise';
+// const styles = require('./scientist-form.style');
 
 export interface ScientistFormProps {
   scientistsActions: ScientistsStateActions;
@@ -16,7 +17,7 @@ export interface ScientistFormState {
   title: TitleType | null;
 }
 
-export class ScientistForm extends React.Component<ScientistFormProps, ScientistFormState> {
+export class ScientistForm extends Component<ScientistFormProps, ScientistFormState> {
 
   constructor(props: any) {
     super(props);
@@ -59,18 +60,18 @@ export class ScientistForm extends React.Component<ScientistFormProps, Scientist
   }
 
   render() {
-    const { name, title } = this.state;
-    const options = TITLE.enumValues().map((type: TitleType) => (
-      <RadioButton
-        key={`radio-button-${type}`}
-        label={capitalise(TITLE.map(type))}
-        value={`${type}`}
-        className={styles.radioButton}
-      />
-    ));
+    // const { name, title } = this.state;
+    // const options = TITLE.enumValues().map((type: TitleType) => (
+    //   <RadioButton
+    //     key={`radio-button-${type}`}
+    //     label={capitalise(TITLE.map(type))}
+    //     value={`${type}`}
+    //     className={styles.radioButton}
+    //   />
+    // ));
     return (
       <div>
-        <Input
+        {/*}<Input
           type="text"
           label="Awesome Computer Scientist"
           value={name || ''}
@@ -88,7 +89,8 @@ export class ScientistForm extends React.Component<ScientistFormProps, Scientist
           primary={this.isFormAnyPristine() || this.isFormValid()}
           accent={!this.isFormAnyPristine() || !this.isFormValid()}
           raised
-        />
+        />*/}
+        Form
       </div>
     );
   }

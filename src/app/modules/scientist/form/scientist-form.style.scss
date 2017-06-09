@@ -1,0 +1,29 @@
+@import '~themes';
+//
+// $custom-grid-desktop: (
+//   columns: $neat-columns,
+//   gutter: 80px,
+//   media: $neat-desktop-min-width,
+// );
+//
+// .scientistRadioGroup {
+//   @include grid-row();
+// }
+//
+// .radioButton {
+//   @include grid-column(12, $neat-grid-mobile);
+//
+//   @include grid-media($neat-grid-tablet) {
+//     @include grid-column(4, $neat-grid-tablet);
+//   }
+//   @include grid-media($custom-grid-desktop) {
+//     @include grid-column(4, $custom-grid-desktop);
+//   }
+//
+//   &:first-child {
+//     margin-left: 0;
+//   }
+//
+//   cursor: pointer;
+//   margin-bottom: $neat-unit*2;
+// }
