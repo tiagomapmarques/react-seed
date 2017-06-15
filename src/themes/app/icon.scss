@@ -1,0 +1,16 @@
+
+@mixin iconAfterContent($unicode) {
+  &::after {
+    font-family: 'Material Icons';
+    content: $unicode;
+    @content
+  }
+}
+
+@mixin iconBeforeContent($unicode) {
+  &::before {
+    font-family: 'Material Icons';
+    content: $unicode;
+    @content
+  }
+}

@@ -1,7 +1,7 @@
 
-@import 'overrides';
+@import 'app/pre-bulma';
 
-// @import 'default/index';
-@import 'material/index';
+// @import 'bulma/default/index';
+@import 'bulma/material/index';
 
-@import 'icon'
+@import 'app/index';
