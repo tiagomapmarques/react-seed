@@ -4,16 +4,16 @@ import * as classnames from 'classnames';
 import { StatelessComponent } from 'modules/base.component';
 import { ICON, IconType } from 'types';
 
-const styles = require('./simple-icon.style');
+const styles = require('./icon.style');
 
-export interface SimpleIconProps {
+export interface IconProps {
   icon: IconType;
   className?: string;
 };
 
-export class SimpleIcon extends StatelessComponent<SimpleIconProps> {
+export class Icon extends StatelessComponent<IconProps> {
 
-  public static defaultProps: Partial<SimpleIconProps> = {
+  public static defaultProps: Partial<IconProps> = {
     className: '',
   };
 

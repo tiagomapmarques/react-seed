@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StatelessComponent } from 'modules/base.component';
-import { SimpleIcon } from 'modules/ui';
+import { Icon } from 'modules/ui';
 import { IconType } from 'types';
 
 const styles = require('./navbar.style');
@@ -32,7 +32,7 @@ export class NavbarBurger extends StatelessComponent<NavbarBurgerProps> {
   render() {
     return (
       <span className={styles.navToggle} onClick={this.handleClick}>
-        <SimpleIcon icon={IconType.BURGER} />
+        <Icon icon={IconType.BURGER} />
       </span>
     );
   }

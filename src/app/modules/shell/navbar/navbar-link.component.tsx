@@ -4,7 +4,7 @@ import * as classnames from 'classnames';
 
 import { NavbarItem } from 'models/navbar-item';
 import { StatelessComponent } from 'modules/base.component';
-import { SimpleIcon } from 'modules/ui';
+import { Icon } from 'modules/ui';
 
 const styles = require('./navbar.style');
 
@@ -40,7 +40,7 @@ export class NavbarLink extends StatelessComponent<NavbarLinkProps> {
     return (
       <Link to={item.link} onMouseDown={this.handleMouseDown} onClick={this.handleClick}>
         <div className={classnames(...itemClassname)}>
-          { showIcon && (<SimpleIcon icon={item.icon}/>) }
+          { showIcon && (<Icon icon={item.icon}/>) }
           <div className={styles.label}>{item.title}</div>
         </div>
       </Link>

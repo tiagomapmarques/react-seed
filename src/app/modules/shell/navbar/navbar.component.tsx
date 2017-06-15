@@ -19,7 +19,7 @@ export interface NavbarState {
 
 const SET_STATE_PROPAGATION_DELAY = 70*2; // 70ms is the stability breaking point
 
-export class NavbarComponent extends Component<NavbarProps, NavbarState> {
+export class Navbar extends Component<NavbarProps, NavbarState> {
 
   private delay: number|undefined;
 

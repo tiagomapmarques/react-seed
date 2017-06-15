@@ -4,7 +4,7 @@ import { SimpleComponent } from 'modules/base.component';
 
 const styles = require('./toolbar.style');
 
-export class ToolbarComponent extends SimpleComponent {
+export class Toolbar extends SimpleComponent {
 
   render() {
     return (
