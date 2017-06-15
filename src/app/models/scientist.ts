@@ -29,11 +29,10 @@ export class Scientist extends JsonModel<ScientistObject> implements ScientistOb
   }
 
   public static fromResponse(scientist: ScientistObjectResponse): Scientist {
-    const cenas = new Scientist({
+    return new Scientist({
       id: parseInt(`${scientist.id}`, NumberType.DEC),
       name: `${scientist.name}`,
       title: TITLE.toModel(`${scientist.title}`),
     });
-    return cenas;
   }
 }
