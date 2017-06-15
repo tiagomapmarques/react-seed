@@ -1,13 +1,26 @@
 @import '~themes';
 
+%iconOnly {
+  @extend %icon;
+  font-style: normal;
+}
+
+.burger {
+  @extend %iconOnly;
+  @include iconAfterContent('\E5D2');
+}
+
 .home {
+  @extend %iconOnly;
   @include iconAfterContent('\E88A');
 }
 
 .about {
+  @extend %iconOnly;
   @include iconAfterContent('\E88F');
 }
 
 .info {
+  @extend %iconOnly;
   @include iconAfterContent('\E88F');
 }
