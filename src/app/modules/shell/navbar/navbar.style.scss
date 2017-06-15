@@ -7,6 +7,10 @@
   height: inherit;
   min-height: inherit;
   border-bottom: 1px solid $grey-lighter;
+
+  .navToggle {
+    height: $nav-height;
+  }
 }
 
 .navBar {
@@ -31,6 +35,16 @@
 
   position: absolute;
   top: 0;
+
+  & > * {
+    height: $nav-height;
+
+    &::after {
+      font-size: $nav-height/3;
+    }
+  }
+
+
 }
 
 .navMenu {
