@@ -1,12 +1,12 @@
 import * as React from 'react';
-// import { Input, Button, RadioGroup, RadioButton } from 'react-toolbox';
+import * as capitalize from 'capitalize';
 
-import { /*TITLE,*/ TitleType, NumberType } from 'types';
-import { ScientistsStateActions } from 'states';
 import { Component } from 'modules/base.component';
+import { RadioGroup, RadioButton, TextInput, Button } from 'modules/ui';
+import { ScientistsStateActions } from 'states';
+import { TITLE, TitleType } from 'types';
 
-// import { capitalise } from './capitalise';
-// const styles = require('./scientist-form.style');
+const styles = require('./scientist-form.style');
 
 export interface ScientistFormProps {
   scientistsActions: ScientistsStateActions;
@@ -23,7 +23,7 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleRadioChange = this.handleRadioChange.bind(this);
 
     this.state = {
       name: null,
@@ -35,8 +35,8 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
     this.setState({ name: value });
   }
 
-  handleTitleChange(value: string) {
-    this.setState({ title: parseInt(value, NumberType.DEC) as TitleType });
+  handleRadioChange(title: TitleType) {
+    this.setState({ title });
   }
 
   handleSubmit() {
@@ -59,38 +59,38 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
     return name === null || title === null;
   }
 
+  buildOptions() {
+    const { title } = this.state;
+    return TITLE.enumValues().map((type: TitleType) => (
+      <RadioButton
+        value={type}
+        label={capitalize(TITLE.map(type))}
+        checked={title === type}
+        onClick={this.handleRadioChange}
+        key={`scientist-form-radio-${type}`}
+      />
+    ));
+  }
+
   render() {
-    // const { name, title } = this.state;
-    // const options = TITLE.enumValues().map((type: TitleType) => (
-    //   <RadioButton
-    //     key={`radio-button-${type}`}
-    //     label={capitalise(TITLE.map(type))}
-    //     value={`${type}`}
-    //     className={styles.radioButton}
-    //   />
-    // ));
+    const { name } = this.state;
+    const isPrimary = this.isFormAnyPristine() || this.isFormValid();
+    const options = this.buildOptions();
+
     return (
-      <div>
-        {/*}<Input
-          type="text"
-          label="Awesome Computer Scientist"
+      <div className={styles.scientistForm}>
+        <TextInput
           value={name || ''}
+          label={'Awesome Computer Scientist'}
+          className={styles.textInput}
           onChange={this.handleNameChange}
-          required
         />
 
-        <RadioGroup value={`${title as number}`} onChange={this.handleTitleChange} className={styles.scientistRadioGroup}>
+        <RadioGroup className={styles.radioGroup}>
           { options }
         </RadioGroup>
 
-        <Button
-          label="Add"
-          onClick={this.handleSubmit}
-          primary={this.isFormAnyPristine() || this.isFormValid()}
-          accent={!this.isFormAnyPristine() || !this.isFormValid()}
-          raised
-        />*/}
-        Form
+        <Button onClick={this.handleSubmit} label={'Add'} isWarning isPrimary={isPrimary} className={styles.button}/>
       </div>
     );
   }

@@ -1,62 +1,61 @@
 @import '~themes';
 
-// $whiteSpacePx: 4px;
-//
-// .scientistList {
-//   margin-top: $neat-unit*2;
-// }
-//
-// .listItem {
-//   list-style: none;
-//   display: table;
-//   margin-bottom: $neat-unit/2;
-//   cursor: pointer;
-//
-//   & > * {
-//     display: inline;
-//   }
-//
-//   span + span {
-//     margin-left: $whiteSpacePx;
-//   }
-//
-//   &::before {
-//     @include icon-content('\E8A6');
-//     vertical-align: bottom;
-//     margin-right: $whiteSpacePx;
-//   }
-//
-//   &::after {
-//     content: ';';
-//   }
-//
-//   &:hover {
-//     div {
-//       text-decoration: line-through;
-//     }
-//
-//     &:before {
-//       color: red;
-//       @include icon-content('\E5CD');
-//       text-decoration: none;
-//     }
-//
-//     &:active::before {
-//       @include icon-content('\E5C9');
-//     }
-//   }
-// }
-//
-// .title {
-//   &Mister {
-//     color: royalblue;
-//   }
-//
-//   &Miss {
-//     color: pink;
-//   }
-//
-//   &Doctor {
-//     font-weight: bold;
-//   }
-// }
+.scientistList {
+  @extend %list;
+
+  .scientistListItem {
+    display: inline-table;
+    margin-left: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .scientistListItemContent {
+
+        @include iconBeforeContent('\E5CD') {
+          text-decoration: none !important;
+          color: red;
+        }
+
+        span {
+          text-decoration: line-through;
+        }
+
+        &:active {
+          @include iconBeforeContent('\E5C9');
+        }
+      }
+    }
+
+    .scientistListItemContent {
+      @extend %listItem;
+      @include iconBeforeContent('\E8A6');
+
+      &::after {
+        content: ';';
+      }
+
+      span + span::before {
+        content: '\00A0';
+      }
+    }
+  }
+}
+
+.title {
+  &Mister {
+    color: royalblue;
+  }
+
+  &Miss {
+    color: pink;
+  }
+
+  &Doctor {
+    font-weight: bold;
+  }
+}
