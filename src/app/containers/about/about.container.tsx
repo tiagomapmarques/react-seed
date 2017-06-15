@@ -16,7 +16,7 @@ export class AboutContainer extends Container<AboutContainerProps> {
         <NavbarComponent selected={1}/>
         <div className={styles.aboutContainer}>
           <p>React Seed is a starter project that implements best practices in coding, building and testing React apps.</p>
-          <p>It is a sibling of the <a href="https://github.com/tiagomapmarques/angular-seed">Agular Seed</a> project</p>
+          <p>It is a sibling of the <a href="https://github.com/tiagomapmarques/angular-seed">Agular Seed</a> project.</p>
 
           <h3>Features</h3>
           <ul>
