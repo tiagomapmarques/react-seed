@@ -21,6 +21,7 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
 
   constructor(props: any) {
     super(props);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleRadioChange = this.handleRadioChange.bind(this);
@@ -29,6 +30,12 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
       name: null,
       title: null,
     };
+  }
+
+  handleKeyUp(event: React.KeyboardEvent<HTMLDivElement>) {
+    if (event.key === 'Enter') {
+      this.handleSubmit();
+    }
   }
 
   handleNameChange(value: string) {
@@ -78,7 +85,7 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
     const options = this.buildOptions();
 
     return (
-      <div className={styles.scientistForm}>
+      <div className={styles.scientistForm} onKeyUp={this.handleKeyUp}>
         <TextInput
           value={name}
           label="Awesome Computer Scientist"
