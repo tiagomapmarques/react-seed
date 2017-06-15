@@ -7,3 +7,11 @@
 .input {
   @extend %input;
 }
+
+.help {
+  @extend %help;
+}
+
+.isDanger {
+  @extend %isDanger;
+}

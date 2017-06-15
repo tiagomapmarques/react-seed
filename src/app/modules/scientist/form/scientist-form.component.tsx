@@ -80,10 +80,11 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
     return (
       <div className={styles.scientistForm}>
         <TextInput
-          value={name || ''}
-          label={'Awesome Computer Scientist'}
+          value={name}
+          label="Awesome Computer Scientist"
           className={styles.textInput}
           onChange={this.handleNameChange}
+          required
         />
 
         <RadioGroup className={styles.radioGroup}>
