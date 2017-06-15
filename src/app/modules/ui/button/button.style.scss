@@ -1,0 +1,35 @@
+@import '~themes';
+
+.button {
+  @extend %button;
+}
+
+.is {
+  &White {
+    @extend %isWhite;
+  }
+  &Black {
+    @extend %isBlack;
+  }
+  &Light {
+    @extend %isLight;
+  }
+  &Dark {
+    @extend %isDark;
+  }
+  &Primary {
+    @extend %isPrimary;
+  }
+  &Info {
+    @extend %isInfo;
+  }
+  &Success {
+    @extend %isSuccess;
+  }
+  &Warning {
+    @extend %isWarning;
+  }
+  &Danger {
+    @extend %isDanger;
+  }
+}

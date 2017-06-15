@@ -1,13 +1,101 @@
 @import '~themes';
 
-.navbar {
-  border-bottom: 1px solid #e0e0e0;
+.nav {
+  @extend %nav;
 
-  &Link {
-    border-radius: 0;
-    cursor: pointer;
-    user-select: none;
-    width: $neat-mobile-min-width/2;
-    height: $neat-unit*4;
+  position: initial;
+  height: inherit;
+  min-height: inherit;
+  border-bottom: 1px solid $grey-lighter;
+
+  .navToggle {
+    height: $nav-height;
   }
+}
+
+.navBar {
+  @extend %navLeft;
+  padding-left: 2px;
+
+  @include mobile {
+    display: none;
+  };
+
+  & > a:focus {
+    outline: none;
+
+    & > .item {
+      background-color: $grey-lighter;
+    }
+  }
+}
+
+.navToggle {
+  @extend %navToggle;
+
+  position: absolute;
+  top: 0;
+
+  & > * {
+    height: $nav-height;
+
+    &::after {
+      font-size: $nav-height/3;
+    }
+  }
+
+
+}
+
+.navMenu {
+  @extend %navMenu;
+
+  display: none;
+  position: absolute;
+  border-right: 1px solid $grey-lighter;
+  border-bottom: 1px solid $grey-lighter;
+
+  &.visible {
+    display: block;
+  }
+
+  @include tablet {
+    display: none !important;
+  }
+
+  .item {
+    padding-left: $nav-height/2;
+  }
+}
+
+.item {
+  @extend %navItem;
+  @extend %button;
+
+  border-radius: 0;
+  box-shadow: none;
+  &:active, &:focus {
+    z-index: 1;
+  }
+
+  &.selected {
+    background-color: lighten($grey-lighter, 5%);
+  }
+
+  cursor: pointer;
+  user-select: none;
+
+  width: 200px;
+  @include tablet {
+    width: 160px;
+  }
+}
+
+.label {
+  padding-right: 6px;
+}
+
+.hidden {
+  position: fixed;
+  left: -1000px;
 }

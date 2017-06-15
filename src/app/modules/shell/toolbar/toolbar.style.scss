@@ -1,5 +1,28 @@
+@import '~themes';
+
+.toolbar {
+  @extend %hero;
+  @extend %isPrimary;
+
+  height: $nav-height;
+}
+
+.toolbarContent {
+  @extend %heroBody;
+
+  padding: 0;
+  padding-left: $nav-height/2;
+
+  @include mobile {
+    padding-left: $nav-height*1.2;
+  };
+}
 
 .brand {
+  @extend %title;
+
+  line-height: $nav-height;
+
   cursor: default;
   user-select: none;
 }

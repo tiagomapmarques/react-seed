@@ -8,6 +8,3 @@ node_modules
 
 # Dist folder
 dist/
-
-# Dont ignore
-!Icon

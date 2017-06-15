@@ -1,0 +1,15 @@
+
+%list {
+  display: flex;
+  flex-direction: column;
+
+  %listItem {
+    @include iconBeforeContent('\E037') {
+      margin-right: 3px;
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: $nav-height/4;
+  }
+}

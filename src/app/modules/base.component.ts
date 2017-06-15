@@ -1,6 +1,16 @@
 import * as React from 'react';
 
-export type SimpleComponentProps = {};
-export type SimpleComponentState = null;
+import { ContainerContext, ContainerContextValidation } from 'containers/base.container';
 
-export class SimpleComponent extends React.Component<SimpleComponentProps, SimpleComponentState> { }
+export type ComponentEmptyProps = {};
+export type ComponentEmptyState = null;
+
+export abstract class Component<P, S> extends React.Component<P, S> {
+
+  public static contextTypes = ContainerContextValidation;
+  public context: ContainerContext;
+}
+
+export abstract class StatelessComponent<P> extends Component<P, ComponentEmptyState> { }
+export abstract class ProplessComponent<S> extends Component<ComponentEmptyProps, S> { }
+export abstract class SimpleComponent extends Component<ComponentEmptyProps, ComponentEmptyState> { }

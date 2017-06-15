@@ -1,0 +1,40 @@
+
+%appContainer {
+  @extend %section;
+  @extend %columns;
+
+  display: block;
+
+  & > * {
+    @extend %column;
+    @extend %isHalf;
+
+    padding: 0;
+
+    &:not(:first-child) {
+      margin-top: $space-unit*2;
+    }
+  }
+
+  margin: 0;
+  padding: $nav-height/2;
+  padding-top: $nav-height/4;
+
+  p + p {
+    margin-top: $space-unit;
+  }
+
+  ul {
+    @extend %list;
+
+    li {
+      @extend %listItem;
+    }
+  }
+
+  h3 {
+    font-size: $size-5;
+    font-weight: bold;
+    margin-top: $space-unit*3;
+  }
+}

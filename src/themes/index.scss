@@ -1,11 +1,7 @@
 
-//TODO: review when this https://github.com/sass/sass/pull/2057 is merged
-//
-// @mixin apply-class-props($elementTag, $className, $args...) {
-//   $mixinName: '#{$elementTag}-#{$className}';
-//   @if(mixin-exists($mixinName)) {
-//     @include #{$mixinName}($args);
-//   }
-// }
+@import 'app/pre-bulma';
 
-@import 'default/index';
+// @import 'bulma/default/index';
+@import 'bulma/material/index';
+
+@import 'app/index';

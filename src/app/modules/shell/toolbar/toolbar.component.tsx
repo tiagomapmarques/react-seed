@@ -1,15 +1,18 @@
 import * as React from 'react';
-import { AppBar } from 'react-toolbox';
 
 import { SimpleComponent } from 'modules/base.component';
 
 const styles = require('./toolbar.style');
 
-export class ToolbarComponent extends SimpleComponent {
+export class Toolbar extends SimpleComponent {
 
   render() {
     return (
-      <AppBar title="React Seed" className={styles.brand} />
+      <div className={styles.toolbar}>
+        <div className={styles.toolbarContent}>
+          <h1 className={styles.brand}>React Seed</h1>
+        </div>
+      </div>
     );
   }
 }

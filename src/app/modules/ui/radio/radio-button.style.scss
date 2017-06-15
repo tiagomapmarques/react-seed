@@ -1,0 +1,36 @@
+@import '~themes';
+
+.radio {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.button {
+  display: block;
+  height: $body-size;
+  width: $body-size;
+  border: 3px solid lighten($primary, 20%);
+  border-radius: 100%;
+
+  &Inner {
+    background-color: inherit;
+    transition: background-color 0.3s;
+  }
+
+  &.checked &Inner {
+    background-color: darken($primary, 20%);
+    display: block;
+    height: 100%;
+    border-radius: 100%;
+    border: 2px solid white;
+  }
+}
+
+.label {
+  padding-left: $space-unit/2;
+}

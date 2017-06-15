@@ -1,0 +1,61 @@
+@import '~themes';
+
+.scientistList {
+  @extend %list;
+
+  .scientistListItem {
+    display: inline-table;
+    margin-left: 0;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .scientistListItemContent {
+
+        @include iconBeforeContent('\E5CD') {
+          text-decoration: none !important;
+          color: red;
+        }
+
+        span {
+          text-decoration: line-through;
+        }
+
+        &:active {
+          @include iconBeforeContent('\E5C9');
+        }
+      }
+    }
+
+    .scientistListItemContent {
+      @extend %listItem;
+      @include iconBeforeContent('\E8A6');
+
+      &::after {
+        content: ';';
+      }
+
+      span + span::before {
+        content: '\00A0';
+      }
+    }
+  }
+}
+
+.title {
+  &Mister {
+    color: royalblue;
+  }
+
+  &Miss {
+    color: pink;
+  }
+
+  &Doctor {
+    font-weight: bold;
+  }
+}

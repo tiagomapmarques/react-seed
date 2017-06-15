@@ -47,8 +47,7 @@ const baseEnvironment = {
       config: `${pathAbsolute}/environments/index.js`,
       themes: `${srcPathAbsolute}/themes/`,
       normalize: `${pathAbsolute}/node_modules/normalize-scss/sass/normalize/_import-now`,
-      bourbon: `${pathAbsolute}/node_modules/bourbon/app/assets/stylesheets/_bourbon`,
-      neat: `${pathAbsolute}/node_modules/bourbon-neat/core/_neat`,
+      bulma: `${pathAbsolute}/node_modules/bulma-scss-components/bulma`,
     },
   },
   plugins: [],
@@ -64,14 +63,6 @@ const baseEnvironment = {
         loaders: [
           { loader: 'ts-loader' },
         ]
-      },
-      {
-        test: /\.css$/,
-        loaders: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader', options: cssOptions },
-          { loader: 'postcss-loader' },
-        ],
       },
       {
         test: /\.scss$/,
