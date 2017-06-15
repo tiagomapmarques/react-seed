@@ -98,7 +98,13 @@ export class ScientistForm extends Component<ScientistFormProps, ScientistFormSt
           { options }
         </RadioGroup>
 
-        <Button onClick={this.handleSubmit} label={'Add'} isWarning isPrimary={isPrimary} className={styles.button}/>
+        <Button
+          label="Add"
+          onClick={this.handleSubmit}
+          isWarning
+          isPrimary={isPrimary}
+          className={styles.button}
+        />
       </div>
     );
   }
