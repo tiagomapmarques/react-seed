@@ -1,0 +1,9 @@
+@import '~themes';
+
+.label {
+  @extend %label;
+}
+
+.input {
+  @extend %input;
+}
